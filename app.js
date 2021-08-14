@@ -6,6 +6,10 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: "./env" });
 
+const {
+    PORT = 5002
+} = process.env;
+
 const app = express();
 
 
@@ -24,6 +28,4 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-app.listen(5002, () => {
-  console.log("Listening on port 5002");
-});
+app.listen(PORT, ()=> console.log(`Listening on Port ${PORT}`));
